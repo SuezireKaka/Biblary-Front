@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import axios from 'api/axios';
+import axios from '../api/axios';
 
 //Hook 사용은 함수 처리 안에서는 사용 불가능 하군요.
 function useFetch(uri, doLog) {
@@ -10,7 +10,7 @@ function useFetch(uri, doLog) {
         if (!uri) {
             return;
         }
-        fetch(uri).then(response => response.json())
+        axios.get(uri)
             .then((resData) => {
                 setData(resData);
                 if (doLog) {

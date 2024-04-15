@@ -1,7 +1,7 @@
-import AppContext from "context/AppContextProvider";
+import AppContext from "../context/AppContextProvider";
 import {useFetch, usePost, useAuth} from "./useFetch"
 import { useContext } from "react";
-import Loading from 'toolbox/Loading';
+import Loading from '../layout/Loading';
 
 function Fetch({uri, renderSuccess = f => f,
     loadingFallBack = <Loading />,

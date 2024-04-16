@@ -25,7 +25,7 @@ export default function BooksSelect(data) {
         </InputGroup.Text>
         <Form.Select onChange={(e) => { onChange(e, setChapter) }}>
             {Array.from({length: nowBook.chapterNumber}, (_, i) => i + 1)
-                .map(i => <option key={i} value={i}>{i + "장"}</option>)}
+                .map(i => <option key={i} value={i}>{i + (nowBook.shortName === "시" ? "편" : "장")}</option>)}
         </Form.Select>
         <Button>Move</Button>
     </>

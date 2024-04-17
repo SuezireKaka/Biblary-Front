@@ -13,7 +13,7 @@ export default function BiblesSelect(data) {
                 <InputGroup.Text id="basic-addon1">
                     성경
                 </InputGroup.Text>
-                <Form.Select onChange={(e) => { onChange(e, setBibleName) }}>
+                <Form.Select onChange={(e) => { onChange(e, false, setBibleName) }}>
                     {data.data.map(d => <option key={d.name} value={d.name} selected={d.name === "개역개정"}>{d.name}</option>)}
                 </Form.Select>
                 <BooksList bibleName={nowBibleName}/>

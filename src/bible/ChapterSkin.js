@@ -1,5 +1,6 @@
 import { useParams } from "react-router"
 import { Fetch } from "../framework/fetch/Fetch"
+import ChapterDetails from "./ChapterDetails"
 
 export default function ChapterSkin() {
     const {bibleName, bookShortName, chapterNum} = useParams()
@@ -8,7 +9,7 @@ export default function ChapterSkin() {
   
     const renderSuccess = (response) => {
       let nowData = response?.data ? response.data : response
-      return <p>{JSON.stringify(nowData)}</p>
+      return <ChapterDetails data={nowData}/>
     }
   
     return <Fetch uri = {BIBLELIST_URL} renderSuccess = {renderSuccess}/>

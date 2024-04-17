@@ -1,4 +1,5 @@
 import { Fetch } from "../framework/fetch/Fetch"
+import { BibleContextProvider } from "./BibleContextProvider"
 import BiblesSelect from "./BiblesSelect"
 
 export default function BiblesList() {
@@ -6,7 +7,9 @@ export default function BiblesList() {
 
   const renderSuccess = (response) => {
     let nowData = response?.data ? response.data : response
-    return <BiblesSelect data={nowData}/>
+    return <BibleContextProvider>
+      <BiblesSelect data={nowData}/>
+    </BibleContextProvider>
   }
 
   return <Fetch uri = {BIBLELIST_URL} renderSuccess = {renderSuccess}/>

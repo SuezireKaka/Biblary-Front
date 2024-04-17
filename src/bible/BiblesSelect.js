@@ -1,9 +1,10 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { Form, InputGroup } from "react-bootstrap"
 import BooksList from "./BooksList";
+import BibleContext from "./BibleContextProvider";
 
 export default function BiblesSelect(data) {
-    const [nowBibleName, setBibleName] = useState("개역개정");
+    const {nowBibleName, setBibleName} = useContext(BibleContext)
 
     function onChange(e, callback = f => f) {
         callback(e.target.value);

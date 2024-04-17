@@ -1,5 +1,6 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { Button, Form, InputGroup } from "react-bootstrap"
+import BibleContext from "./BibleContextProvider";
 
 export default function BooksSelect(data) {
     const [nowBook, setBook] = useState({pos: 0, fullName: "", shortName: "창", chapterNumber: 50, newTestament: false});

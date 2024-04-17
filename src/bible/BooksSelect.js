@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import BibleContext from "./BibleContextProvider";
 import onChange from "../util/onChange";
 
-export default function BooksSelect(data) {
+export default function BooksSelect({data}) {
     const {nowBibleName} = useContext(BibleContext)
 
     const [nowBook, setBook] = useState(
@@ -18,7 +18,7 @@ export default function BooksSelect(data) {
             서
         </InputGroup.Text>
         <Form.Select onChange={(e) => { onChange(e, true, setBook) }}>
-            {data.data.map(d => <option key={d.fullName} value={JSON.stringify(d)}>{d.fullName}</option>)}
+            {data.map(d => <option key={d.fullName} value={JSON.stringify(d)}>{d.fullName}</option>)}
         </Form.Select>
         <InputGroup.Text id="basic-addon1">
             장

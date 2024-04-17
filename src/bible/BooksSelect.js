@@ -2,6 +2,7 @@ import { useContext, useState, useEffect } from "react"
 import { Button, Form, InputGroup } from "react-bootstrap"
 import { Link } from "react-router-dom";
 import BibleContext from "./BibleContextProvider";
+import onChange from "../util/onChange";
 
 export default function BooksSelect(data) {
     const {nowBibleName} = useContext(BibleContext)
@@ -9,10 +10,6 @@ export default function BooksSelect(data) {
     const [nowBook, setBook] = useState(
         {pos: 0, fullName: "", shortName: "창", chapterNumber: 50, newTestament: false});
     const [nowChapter, setChapter] = useState(1);
-
-    function onChange(e, callback = f => f) {
-        callback(JSON.parse(e.target.value));
-    }
 
     useEffect(() => {setBook({pos: 0, fullName: "", shortName: nowBibleName === "ORG" ? "마" : "창", chapterNumber: 50, newTestament: false})}, [nowBibleName])
 

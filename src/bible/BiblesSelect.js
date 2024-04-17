@@ -2,13 +2,10 @@ import { useContext } from "react"
 import { Form, InputGroup } from "react-bootstrap"
 import BooksList from "./BooksList";
 import BibleContext from "./BibleContextProvider";
+import onChange from "../util/onChange";
 
 export default function BiblesSelect(data) {
     const {nowBibleName, setBibleName} = useContext(BibleContext)
-
-    function onChange(e, callback = f => f) {
-        callback(e.target.value);
-    }
 
     return <>
         <form>

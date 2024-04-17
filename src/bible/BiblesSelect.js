@@ -1,4 +1,4 @@
-import { useContext, useState } from "react"
+import { useContext } from "react"
 import { Form, InputGroup } from "react-bootstrap"
 import BooksList from "./BooksList";
 import BibleContext from "./BibleContextProvider";

@@ -1,18 +1,20 @@
-import { useContext, useState } from "react"
+import { useContext, useState, useEffect } from "react"
 import { Button, Form, InputGroup } from "react-bootstrap"
+import { Link } from "react-router-dom";
 import BibleContext from "./BibleContextProvider";
 
 export default function BooksSelect(data) {
-    const [nowBook, setBook] = useState({pos: 0, fullName: "", shortName: "창", chapterNumber: 50, newTestament: false});
+    const {nowBibleName} = useContext(BibleContext)
+
+    const [nowBook, setBook] = useState(
+        {pos: 0, fullName: "", shortName: nowBibleName === "ORG" ? "마" : "창", chapterNumber: 50, newTestament: false});
     const [nowChapter, setChapter] = useState(1);
 
     function onChange(e, callback = f => f) {
         callback(JSON.parse(e.target.value));
     }
 
-    function onChange(e, callback = f => f) {
-        callback(JSON.parse(e.target.value));
-    }
+    useEffect(() => {setBook({pos: 0, fullName: "", shortName: nowBibleName === "ORG" ? "마" : "창", chapterNumber: 50, newTestament: false})}, [nowBibleName])
 
     return <>
         <InputGroup.Text id="basic-addon1">
@@ -28,6 +30,8 @@ export default function BooksSelect(data) {
             {Array.from({length: nowBook.chapterNumber}, (_, i) => i + 1)
                 .map(i => <option key={i} value={i}>{i + (nowBook.shortName === "시" ? "편" : "장")}</option>)}
         </Form.Select>
-        <Button>Move</Button>
+        <Link to={`/bibles/${nowBibleName}/${nowBook.shortName}/${nowChapter}`}>
+            <Button>Move</Button>
+        </Link>
     </>
 }

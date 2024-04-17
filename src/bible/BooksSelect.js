@@ -7,7 +7,7 @@ export default function BooksSelect(data) {
     const {nowBibleName} = useContext(BibleContext)
 
     const [nowBook, setBook] = useState(
-        {pos: 0, fullName: "", shortName: nowBibleName === "ORG" ? "마" : "창", chapterNumber: 50, newTestament: false});
+        {pos: 0, fullName: "", shortName: "창", chapterNumber: 50, newTestament: false});
     const [nowChapter, setChapter] = useState(1);
 
     function onChange(e, callback = f => f) {

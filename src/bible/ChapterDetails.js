@@ -1,5 +1,6 @@
 import { Button, Table } from "react-bootstrap";
 import Verse from "./Verse";
+import OriginVerse from "./OriginVerse";
 
 export default function ChapterDetails(data) {
     const {bible, book, chapter, versesList} = data?.data;
@@ -16,8 +17,8 @@ export default function ChapterDetails(data) {
             </tr>
         </thead>
         <tbody>
-            {bible?.language.original
-            ? versesList?.map(v => <tr><td>{v.contents}</td>{v.verse}<td></td></tr>)
+            {bible?.parsed
+            ? versesList?.map(v => <OriginVerse verse={v}/>)
             : versesList?.map(v => <Verse verse={v}/>)}
         </tbody>
     </Table>

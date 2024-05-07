@@ -11,7 +11,14 @@ export default function BooksSelect({data}) {
         {pos: 0, fullName: "", shortName: "창", chapterSuffix: "장", chapterNumber: 50, newTestament: false});
     const [nowChapter, setChapter] = useState(1);
 
-    useEffect(() => {setBook({pos: 0, fullName: "", shortName: nowBibleName === "ORG" ? "마" : "창", chapterSuffix: "장", chapterNumber: 50, newTestament: false})}, [nowBibleName])
+    useEffect(() => {setBook({
+        pos: 0, 
+        fullName: "", 
+        shortName: nowBibleName === "ORG" || nowBibleName === "GNT" ? "마" : "창", 
+        chapterSuffix: "장",
+        chapterNumber: 50,
+        newTestament: false})}
+    , [nowBibleName])
 
     return <>
         <InputGroup.Text id="basic-addon1">
